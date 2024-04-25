@@ -83,7 +83,9 @@ export default class LinkedList {
 
     if (index === 0) {
       this.head = pointer.next;
-      pointer.next.previous = null;
+      if (pointer.next) pointer.next.previous = null;
+      this.size--;
+      return;
     } else pointer.previous.next = pointer.next;
 
     if (index === this.size - 1) {
